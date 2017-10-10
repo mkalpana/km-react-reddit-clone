@@ -1,9 +1,13 @@
 // Actions
 export { FETCH_CATEGORIES } from './categories';
-export { FETCH_COMMENTS, ADD_COMMENT, REMOVE_COMMENT } from './comments';
-export { FETCH_POSTS, ADD_POST, REMOVE_POST } from './posts';
+export {
+  FETCH_POSTS, ADD_POST, REMOVE_POST,
+  FETCH_POST_COMMENTS, ADD_POST_COMMENT, REMOVE_POST_COMMENT
+} from './posts';
 
 // Action Creators
 export { fetchCategories, addCategory, removeCategory } from './categories';
-export { fetchComments, addComment, removeComment } from './comments';
-export { fetchPosts, addPost, removePost } from './posts';
+export {
+  fetchPosts, addPost, removePost,
+  fetchPostComments, addPostComment, removePostComment
+} from './posts';
