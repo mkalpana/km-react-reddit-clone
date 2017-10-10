@@ -19,8 +19,7 @@ class Home extends Component {
       return { url: `/category/${category.path}`, name: category.name };
     }) : [];
     return (
-      <div>
-        <div>Home</div>
+      <div className="Home-container">
         <div>
           <div className="Home-post-section">
             {

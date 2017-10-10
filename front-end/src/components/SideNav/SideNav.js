@@ -12,8 +12,8 @@ class SideNav extends Component{
         {
           links && links.map(link => {
             return (
-              <div>
-                <Link key={link.name} to={link.url}>{link.name}</Link>
+              <div key={link.name}>
+                <Link to={link.url}>{link.name}</Link>
               </div>
             )
           })

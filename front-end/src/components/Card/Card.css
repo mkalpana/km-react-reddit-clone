@@ -1,0 +1,23 @@
+.Card-container {
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.Card-container h3 {
+  margin-top: 0;
+}
+
+.Card-container a {
+  color: #336699;
+  text-decoration: none;
+}
+
+.Card-container a:visited {
+  color: #336699;
+}
+
+.Card-container a:hover {
+  text-decoration: underline;
+}
