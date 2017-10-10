@@ -13,7 +13,7 @@
 
 .SideNav-Link a {
   color: #336699;
-  border: 2px solid transparent;
+  border-left: 2px solid transparent;
   box-sizing: border-box;
   text-decoration: none;
   padding: 4px 0 4px 10px;
@@ -21,11 +21,15 @@
   width: 100%;
 }
 
-.SideNav-Link a:hover {
+.SideNav-Link a:hover, .SideNav-Link.selected {
   border-left: 2px solid #336699;
   background-color: #d3dfea; /* #f4f8fb; */
 }
 
+.SideNav-Link.selected a, .SideNav-Link.selected a:hover {
+  border: none;
+}
+
 .SideNav-Link a:focus {
-  outline: thin dotted;
+  outline: 0; /* thin dotted; */
 }

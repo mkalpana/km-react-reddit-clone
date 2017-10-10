@@ -4,6 +4,9 @@ export const FETCH_POSTS = 'FETCH_POSTS';
 export const ADD_POST = 'ADD_POST';
 export const REMOVE_POST = 'REMOVE_POST';
 
+export const UP_VOTE_POST = 'UP_VOTE_POST';
+export const DOWN_VOTE_POST = 'DOWN_VOTE_POST';
+
 export const FETCH_POST_COMMENTS = 'FETCH_POST_COMMENTS';
 export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
 export const REMOVE_POST_COMMENT = 'REMOVE_POST_COMMENT';
@@ -33,6 +36,17 @@ export function removePost(postId) {
   }
 }
 
+export function upVotePost() {
+  return {
+    type: UP_VOTE_POST
+  };
+}
+
+export function downVotePost() {
+  return {
+    type: DOWN_VOTE_POST
+  };
+}
 
 export function fetchPostComments(postId) {
   return dispatch => {

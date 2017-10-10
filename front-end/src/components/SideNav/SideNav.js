@@ -5,13 +5,14 @@ import './SideNav.css';
 
 class SideNav extends Component{
   render() {
-    const { links } = this.props;
+    const { links, selected } = this.props;
     return (
       <div className="SideNav-container">
         {
           links && links.map(link => {
+            const linkStyle = `SideNav-Link ${selected === link.name ? 'selected' : ''}`;
             return (
-              <div key={link.name} className="SideNav-Link">
+              <div key={link.name} className={linkStyle} >
                 <Link to={link.url}>{link.name}</Link>
               </div>
             )
@@ -23,5 +24,6 @@ class SideNav extends Component{
 }
 SideNav.propTypes = {
   links: PropTypes.array,
+  selected: PropTypes.string,
 };
 export default SideNav;

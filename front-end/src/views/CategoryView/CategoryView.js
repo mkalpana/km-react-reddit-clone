@@ -24,7 +24,7 @@ class CategoryView extends Component {
   }
 
   render() {
-    const { posts, categories } = this.props;
+    const { posts, categories, match } = this.props;
     const links = categories ? categories.map(category => {
       return { url: `/${category.path}`, name: category.name };
     }) : [];
@@ -51,7 +51,7 @@ class CategoryView extends Component {
               })
             }
           </div>
-          <SideNav links={links} />
+          <SideNav links={links} selected={match.params.categoryId}/>
         </div>
       </div>
     );
