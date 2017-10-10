@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
 import { Home, CategoryView, ViewPost, AddPost } from '../index';
+import MdWifiTethering from 'react-icons/lib/md/wifi-tethering';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
           <div className="App">
             <header className="App-header">
               <div className="App-header-inner">
+                <MdWifiTethering className="App-logo" size={30}/>
                 <h1 className="App-title">React Reddit Clone</h1>
                 <nav className="App-nav">
                   <Link className="App-link" to="/">Home</Link>

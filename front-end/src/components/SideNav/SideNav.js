@@ -8,11 +8,10 @@ class SideNav extends Component{
     const { links } = this.props;
     return (
       <div className="SideNav-container">
-        <h2>Categories</h2>
         {
           links && links.map(link => {
             return (
-              <div key={link.name}>
+              <div key={link.name} className="SideNav-Link">
                 <Link to={link.url}>{link.name}</Link>
               </div>
             )

@@ -1,8 +1,8 @@
 .Card-container {
-  border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
   margin-bottom: 20px;
+  background-color: #d3dfea;
 }
 
 .Card-container h3 {
@@ -20,4 +20,14 @@
 
 .Card-container a:hover {
   text-decoration: underline;
+}
+
+.Card-description {
+  font-size: 16px;
+  padding-bottom: 4px;
+}
+
+.Card-detail {
+  font-size: 14px;
+  padding-bottom: 2px;
 }

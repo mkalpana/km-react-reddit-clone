@@ -2,16 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './Card.css';
+import moment from 'moment';
 
 class Card extends Component{
   render() {
-    const { timestamp, title, body, author, category, comments, postURL } = this.props;
+    const { timestamp, title, body, author, category, comments, postURL, categoryURL } = this.props;
+    const postDateTime = new Date(timestamp);
     return (
       <div className="Card-container">
         <Link to={postURL}><h3 className="Card-title">{title}</h3></Link>
-        <div>{body}</div>
-        <div>Post by {author} in {category} section{timestamp ? ` at ${new Date(timestamp)}` : ''}</div>
-        <div>Received {comments ? comments.length : 0} comments</div>
+        <div className="Card-description">{body}</div>
+        <div className="Card-detail">
+          Posted by <span className="bold">{author}</span> {timestamp ? ` on ${moment(postDateTime).format('MMMM Do YYYY, h:mm:ss a')}` : ''}
+          </div>
+        <div className="Card-detail">
+          Posted under&nbsp;
+          <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
+          <Link className="bold" to={postURL}>{comments ? comments.length : 0}</Link>&nbsp;
+          comments
+        </div>
       </div>
     );
   }
@@ -25,6 +34,7 @@ Card.propTypes = {
   voteScore: PropTypes.number,
   comments: PropTypes.array,
   postURL: PropTypes.string,
+  categoryURL: PropTypes.string,
 };
 
 export default Card;

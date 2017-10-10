@@ -5,3 +5,27 @@
   padding: 10px;
   box-sizing: border-box;
 }
+
+.SideNav-Link {
+  font-size: 18px;
+  margin: 10px;
+}
+
+.SideNav-Link a {
+  color: #336699;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  padding: 4px 0 4px 10px;
+  display: inline-block;
+  width: 100%;
+}
+
+.SideNav-Link a:hover {
+  border-left: 2px solid #336699;
+  background-color: #d3dfea; /* #f4f8fb; */
+}
+
+.SideNav-Link a:focus {
+  outline: thin dotted;
+}

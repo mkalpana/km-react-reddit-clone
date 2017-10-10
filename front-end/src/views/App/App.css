@@ -5,10 +5,14 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #2566a7;
   height: 50px;
   padding: 20px;
   color: white;
+}
+
+.App-logo {
+  margin: 0 10px 10px 0;
 }
 
 .App-header-inner, .App-body {
@@ -38,10 +42,10 @@
   text-decoration: none;
   display: inline-block;
   line-height: 30px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .App-link:hover {
-  background-color: #cdcdcd;
-  color: black;
+  background-color: #d3dfea;
+  color: #336699;
 }

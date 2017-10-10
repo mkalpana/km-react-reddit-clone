@@ -35,6 +35,7 @@ class Home extends Component {
                     voteScore={post.voteScore}
                     comments={post.comments}
                     postURL={`/${post.category}/${post.id}`}
+                    categoryURL={`/${post.category}`}
                   />
                 );
               })
