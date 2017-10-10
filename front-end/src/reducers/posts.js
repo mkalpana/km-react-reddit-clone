@@ -1,4 +1,4 @@
-import { FETCH_POSTS, FETCH_POST_COMMENTS } from "../actions";
+import { FETCH_POSTS, FETCH_POST_COMMENTS, FETCH_CATEGORY_POSTS } from "../actions";
 
 const postReducer = (state=[], action) => {
   switch(action.type) {
@@ -13,6 +13,8 @@ const postReducer = (state=[], action) => {
         return newPost;
       });
       return posts;
+    case FETCH_CATEGORY_POSTS:
+      return action.payload;
     default:
       return state;
   }
