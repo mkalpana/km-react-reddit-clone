@@ -1,8 +1,9 @@
 {
-  "name": "reddit-clone-server",
+  "name": "km-react-reddit-clone-api-server",
   "version": "0.0.1",
   "description": "A server for the Reddit Clone project",
   "main": "server.js",
+  "author": "Kalpana Madhalam",
   "keywords": [
     "redux",
     "reddit clone",
