@@ -3,23 +3,29 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './Card.css';
 import moment from 'moment';
+import { VoteScore } from '../index';
 
 class Card extends Component{
   render() {
-    const { timestamp, title, body, author, category, comments, postURL, categoryURL } = this.props;
+    const { timestamp, title, body, author, category, voteScore, comments, postURL, categoryURL } = this.props;
     const postDateTime = new Date(timestamp);
     return (
       <div className="Card-container">
-        <Link to={postURL}><h3 className="Card-title">{title}</h3></Link>
-        <div className="Card-description">{body}</div>
-        <div className="Card-detail">
-          Posted by <span className="bold">{author}</span> {timestamp ? ` on ${moment(postDateTime).format('MMMM Do YYYY, h:mm:ss a')}` : ''}
+        <div className="Card-vote-score">
+          <VoteScore score={voteScore}/>
+        </div>
+        <div>
+          <Link to={postURL}><h3 className="Card-title">{title}</h3></Link>
+          <div className="Card-description">{body}</div>
+          <div className="Card-detail">
+            Posted by <span className="bold">{author}</span> {timestamp ? ` on ${moment(postDateTime).format('MMMM Do YYYY, h:mm:ss a')}` : ''}
           </div>
-        <div className="Card-detail">
-          Posted under&nbsp;
-          <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
-          <Link className="bold" to={postURL}>{comments ? comments.length : 0}</Link>&nbsp;
-          comments
+          <div className="Card-detail">
+            Posted under&nbsp;
+            <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
+            <Link className="bold" to={postURL}>{comments ? comments.length : 0}</Link>&nbsp;
+            comments
+          </div>
         </div>
       </div>
     );

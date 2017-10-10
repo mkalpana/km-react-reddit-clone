@@ -3,6 +3,8 @@
   box-sizing: border-box;
   margin-bottom: 20px;
   background-color: #d3dfea;
+  display: flex;
+  align-items: center;
 }
 
 .Card-container h3 {
@@ -21,6 +23,11 @@
 
 .Card-container a:hover {
   text-decoration: underline;
+}
+
+.Card-vote-score {
+  width: 40px;
+  margin-right: 20px;
 }
 
 .Card-description {
