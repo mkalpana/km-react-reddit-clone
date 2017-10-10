@@ -16,7 +16,7 @@ class Home extends Component {
   render() {
     const { posts, categories } = this.props;
     const links = categories ? categories.map(category => {
-      return { url: `/category/${category.path}`, name: category.name };
+      return { url: `/${category.path}`, name: category.name };
     }) : [];
     return (
       <div className="Home-container">

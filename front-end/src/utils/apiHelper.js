@@ -20,3 +20,7 @@ export const getCategories = () => {
 export const getPostComments = (postId) => {
   return axios.get(`/posts/${postId}/comments`).then(response => response && response.data ? response.data : []);
 };
+
+export const getCategoryPosts = (categoryId) => {
+  return axios.get(`/${categoryId}/posts`).then(response => response && response.data ? response.data : []);
+};

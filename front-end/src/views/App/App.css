@@ -43,6 +43,7 @@
   display: inline-block;
   line-height: 30px;
   border-radius: 2px;
+  letter-spacing: 1px;
 }
 
 .App-link:hover {

@@ -12,6 +12,7 @@
 .Card-container a {
   color: #336699;
   text-decoration: none;
+  letter-spacing: 1px;
 }
 
 .Card-container a:visited {
