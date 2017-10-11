@@ -31,3 +31,7 @@ export const addPost = (post) => {
 export const deletePost = (postId) => {
   return axios.delete(`/posts/${postId}`).then(response => response.data ? response.data : {})
 };
+
+export const votePost = (postId, option) => {
+  return axios.post(`/posts/${postId}`, { option }).then(response => response.data ? response.data : {})
+};

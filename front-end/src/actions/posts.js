@@ -1,13 +1,10 @@
 import {
-  getPosts, deletePost, getPostComments, getCategoryPosts
+  getPosts, deletePost, getPostComments, getCategoryPosts, votePost,
 } from "../utils/apiHelper";
 
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const ADD_POST = 'ADD_POST';
-export const REMOVE_POST = 'REMOVE_POST';
-
-export const UP_VOTE_POST = 'UP_VOTE_POST';
-export const DOWN_VOTE_POST = 'DOWN_VOTE_POST';
+export const UPDATE_POST = 'UPDATE_POST';
 
 export const FETCH_POST_COMMENTS = 'FETCH_POST_COMMENTS';
 export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
@@ -34,21 +31,27 @@ export function addPost(post) {
 export function removePost(postId) {
   return dispatch => {
     return deletePost(postId).then(post => dispatch({
-      type: REMOVE_POST,
+      type: UPDATE_POST,
       payload: post,
     }));
   };
 }
 
-export function upVotePost() {
-  return {
-    type: UP_VOTE_POST,
+export function upVotePost(postId) {
+  return dispatch => {
+    return votePost(postId, 'upVote').then(post => dispatch({
+      type: UPDATE_POST,
+      payload: post,
+    }));
   };
 }
 
-export function downVotePost() {
-  return {
-    type: DOWN_VOTE_POST,
+export function downVotePost(postId) {
+  return dispatch => {
+    return votePost(postId, 'downVote').then(post => dispatch({
+      type: UPDATE_POST,
+      payload: post,
+    }));
   };
 }
 

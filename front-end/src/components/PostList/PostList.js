@@ -5,17 +5,28 @@ import  { TIME_ASC, TIME_DESC, SCORE_ASC, SCORE_DESC, sortHelper } from "./util"
 import './PostList.css';
 
 class PostList extends Component {
-  state = {
-    sortOrder: '',
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      posts: props.post,
+      sortOrder: TIME_DESC,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(this.state.posts !== nextProps.posts) {
+      this.setState({ posts: nextProps.posts });
+    }
+  }
 
   onSortChange = (e) => {
     this.setState({ sortOrder: e.target.value });
   };
 
   getSortedPosts() {
-    const { posts } = this.props;
-    const { sortOrder } = this.state;
+    const { posts, sortOrder } = this.state;
+    if (!posts) return posts;
 
     switch(sortOrder) {
       case TIME_ASC:
@@ -32,7 +43,8 @@ class PostList extends Component {
   }
 
   render() {
-    const { posts, onDeletePost } = this.props;
+    const { posts } = this.state;
+    const { onDeletePost, onUpVote, onDownVote } = this.props;
     const sortedPosts = this.getSortedPosts(posts);
 
     return (
@@ -63,6 +75,8 @@ class PostList extends Component {
                 postURL={`/${post.category}/${post.id}`}
                 categoryURL={`/${post.category}`}
                 onDeletePost={() => onDeletePost(post.id)}
+                onUpVote={() => onUpVote(post.id)}
+                onDownVote={() => onDownVote(post.id)}
               />
             );
           })
@@ -74,5 +88,10 @@ class PostList extends Component {
 PostList.propTypes = {
   posts: PropTypes.array,
   onDeletePost: PropTypes.func,
+  onUpVote: PropTypes.func,
+  onDownVote: PropTypes.func,
+};
+PostList.defaultPropTypes = {
+  posts: [],
 };
 export default PostList;

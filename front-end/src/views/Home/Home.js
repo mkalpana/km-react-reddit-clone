@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-  fetchPosts, removePost, fetchPostComments, fetchCategories
+  fetchPosts, removePost, upVotePost, downVotePost, fetchPostComments, fetchCategories
 } from '../../actions';
 import { PostsList, SideNav } from '../../components';
 import './Home.css';
@@ -16,14 +16,14 @@ class Home extends Component {
   }
 
   render() {
-    const { posts, categories, removePost } = this.props;
+    const { posts, categories, removePost, upVotePost, downVotePost } = this.props;
     const links = categories ? categories.map(category => {
       return { url: `/${category.path}`, name: category.name };
     }) : [];
     return (
       <div className="Home-container">
         <div>
-          <PostsList posts={posts} onDeletePost={removePost} />
+          <PostsList posts={posts} onDeletePost={removePost} onUpVote={upVotePost} onDownVote={downVotePost}/>
           <SideNav links={links} />
         </div>
       </div>
@@ -33,6 +33,8 @@ class Home extends Component {
 Home.propTypes = {
   fetchPosts: PropTypes.func,
   removePost: PropTypes.func,
+  upVotePost: PropTypes.func,
+  downVotePost: PropTypes.func,
   fetchPostComments: PropTypes.func,
   fetchCategories: PropTypes.func,
 };
@@ -47,6 +49,8 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps, {
   fetchPosts,
   removePost,
+  upVotePost,
+  downVotePost,
   fetchPostComments,
   fetchCategories,
 })(Home);
