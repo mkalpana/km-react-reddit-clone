@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
   fetchPosts, removePost, fetchPostComments, fetchCategories
 } from '../../actions';
-import { Card, SideNav } from '../../components';
+import { PostsList, SideNav } from '../../components';
 import './Home.css';
 
 class Home extends Component {
@@ -23,27 +23,7 @@ class Home extends Component {
     return (
       <div className="Home-container">
         <div>
-          <div className="Home-post-section">
-            {
-              posts && posts.map(post => {
-                return (post && !post.deleted &&
-                  <Card
-                    key={post.id}
-                    timestamp={post.timestamp}
-                    title={post.title}
-                    body={post.body}
-                    author={post.author}
-                    category={post.category}
-                    voteScore={post.voteScore}
-                    comments={post.comments}
-                    postURL={`/${post.category}/${post.id}`}
-                    categoryURL={`/${post.category}`}
-                    onDeletePost={() => removePost(post.id)}
-                  />
-                );
-              })
-            }
-          </div>
+          <PostsList posts={posts} onDeletePost={removePost} />
           <SideNav links={links} />
         </div>
       </div>

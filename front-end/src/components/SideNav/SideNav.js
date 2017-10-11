@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './SideNav.css';
 
-class SideNav extends Component{
+class SideNav extends PureComponent {
   render() {
     const { links, selected } = this.props;
     return (

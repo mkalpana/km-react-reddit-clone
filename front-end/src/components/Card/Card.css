@@ -25,11 +25,6 @@
   text-decoration: underline;
 }
 
-.Card-vote-score {
-  width: 40px;
-  margin-right: 20px;
-}
-
 .Card-description {
   font-size: 16px;
   padding-bottom: 4px;

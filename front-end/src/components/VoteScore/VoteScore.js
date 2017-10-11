@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import FaCaretUp from 'react-icons/lib/fa/caret-up';
 import FaCaretDown from 'react-icons/lib/fa/caret-down';
@@ -6,7 +6,7 @@ import './VoteScore.css';
 
 const ICON_SIZE = 40;
 
-class VoteScore extends Component {
+class VoteScore extends PureComponent {
   render() {
     const { score, onUpVote, onDownVote } = this.props;
     return (

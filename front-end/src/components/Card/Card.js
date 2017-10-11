@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './Card.css';
 import moment from 'moment';
 import { VoteScore } from '../index';
 
-class Card extends Component{
+class Card extends PureComponent {
   render() {
     const {
       timestamp, title, body, author, category, voteScore, comments,
@@ -14,9 +14,7 @@ class Card extends Component{
     const postDateTime = new Date(timestamp);
     return (
       <div className="Card-container">
-        <div className="Card-vote-score">
-          <VoteScore score={voteScore} onUpVote={onUpVote} onDownVote={onDownVote} />
-        </div>
+        <VoteScore score={voteScore} onUpVote={onUpVote} onDownVote={onDownVote} />
         <div>
           <Link to={postURL}><h3 className="Card-title">{title}</h3></Link>
           <div className="Card-description">{body}</div>

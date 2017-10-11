@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCategoryPosts, fetchPostComments, fetchCategories } from '../../actions';
-import { Card, SideNav } from '../../components';
+import { fetchCategoryPosts, fetchPostComments, fetchCategories, removePost } from '../../actions';
+import { PostsList, SideNav } from '../../components';
 import './CategoryView.css';
 
 class CategoryView extends Component {
@@ -24,33 +24,14 @@ class CategoryView extends Component {
   }
 
   render() {
-    const { posts, categories, match } = this.props;
+    const { posts, categories, match, removePost } = this.props;
     const links = categories ? categories.map(category => {
       return { url: `/${category.path}`, name: category.name };
     }) : [];
     return (
       <div className="CategoryView-container">
         <div>
-          <div className="CategoryView-post-section">
-            {
-              posts && posts.map(post => {
-                return (post && !post.deleted &&
-                  <Card
-                    key={post.id}
-                    timestamp={post.timestamp}
-                    title={post.title}
-                    body={post.body}
-                    author={post.author}
-                    category={post.category}
-                    voteScore={post.voteScore}
-                    comments={post.comments}
-                    postURL={`/${post.category}/${post.id}`}
-                    categoryURL={`/${post.category}`}
-                  />
-                );
-              })
-            }
-          </div>
+          <PostsList posts={posts} onDeletePost={removePost} />
           <SideNav links={links} selected={match.params.categoryId}/>
         </div>
       </div>
@@ -75,4 +56,5 @@ export default connect(mapStateToProps, {
   fetchCategoryPosts,
   fetchPostComments,
   fetchCategories,
+  removePost,
 })(CategoryView);
