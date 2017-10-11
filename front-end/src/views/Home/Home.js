@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchPosts, fetchPostComments, fetchCategories } from '../../actions';
+import {
+  fetchPosts, removePost, fetchPostComments, fetchCategories
+} from '../../actions';
 import { Card, SideNav } from '../../components';
 import './Home.css';
 
@@ -14,7 +16,7 @@ class Home extends Component {
   }
 
   render() {
-    const { posts, categories } = this.props;
+    const { posts, categories, removePost } = this.props;
     const links = categories ? categories.map(category => {
       return { url: `/${category.path}`, name: category.name };
     }) : [];
@@ -36,6 +38,7 @@ class Home extends Component {
                     comments={post.comments}
                     postURL={`/${post.category}/${post.id}`}
                     categoryURL={`/${post.category}`}
+                    onDeletePost={() => removePost(post.id)}
                   />
                 );
               })
@@ -49,6 +52,7 @@ class Home extends Component {
 }
 Home.propTypes = {
   fetchPosts: PropTypes.func,
+  removePost: PropTypes.func,
   fetchPostComments: PropTypes.func,
   fetchCategories: PropTypes.func,
 };
@@ -62,6 +66,7 @@ function mapStateToProps(state) {
 }
 export default connect(mapStateToProps, {
   fetchPosts,
+  removePost,
   fetchPostComments,
   fetchCategories,
 })(Home);

@@ -11,7 +11,6 @@ export const getPosts = () => {
   return axios.get('/posts').then(response => response && response.data ? response.data : []);
 };
 
-
 export const getCategories = () => {
   return axios.get('/categories').then(response => response && response.data ? response.data.categories : []);
 };
@@ -23,4 +22,12 @@ export const getPostComments = (postId) => {
 
 export const getCategoryPosts = (categoryId) => {
   return axios.get(`/${categoryId}/posts`).then(response => response && response.data ? response.data : []);
+};
+
+export const addPost = (post) => {
+  return axios.post('/posts', post).then(response => response && response.data ? response.data : {});
+};
+
+export const deletePost = (postId) => {
+  return axios.delete(`/posts/${postId}`).then(response => response.data ? response.data : {})
 };

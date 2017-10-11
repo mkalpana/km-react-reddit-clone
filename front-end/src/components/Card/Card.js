@@ -7,12 +7,15 @@ import { VoteScore } from '../index';
 
 class Card extends Component{
   render() {
-    const { timestamp, title, body, author, category, voteScore, comments, postURL, categoryURL } = this.props;
+    const {
+      timestamp, title, body, author, category, voteScore, comments,
+      postURL, categoryURL, onUpVote, onDownVote, onDeletePost,
+    } = this.props;
     const postDateTime = new Date(timestamp);
     return (
       <div className="Card-container">
         <div className="Card-vote-score">
-          <VoteScore score={voteScore}/>
+          <VoteScore score={voteScore} onUpVote={onUpVote} onDownVote={onDownVote} />
         </div>
         <div>
           <Link to={postURL}><h3 className="Card-title">{title}</h3></Link>
@@ -23,8 +26,8 @@ class Card extends Component{
           <div className="Card-detail">
             Posted under&nbsp;
             <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
-            <Link className="bold" to={postURL}>{comments ? comments.length : 0}</Link>&nbsp;
-            comments
+            <Link className="bold" to={postURL}>{comments ? comments.length : 0}</Link>&nbsp;comments |&nbsp;
+            <a href="#" onClick={onDeletePost} className="bold">Delete Post</a>
           </div>
         </div>
       </div>
@@ -41,6 +44,9 @@ Card.propTypes = {
   comments: PropTypes.array,
   postURL: PropTypes.string,
   categoryURL: PropTypes.string,
+  onUpVote: PropTypes.func,
+  onDownVote: PropTypes.func,
+  onDeletePost: PropTypes.func,
 };
 
 export default Card;
