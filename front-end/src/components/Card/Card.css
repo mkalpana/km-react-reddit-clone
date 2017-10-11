@@ -17,10 +17,6 @@
   letter-spacing: 1px;
 }
 
-.Card-container a:visited {
-  color: #336699;
-}
-
 .Card-container a:hover {
   text-decoration: underline;
 }
@@ -33,4 +29,17 @@
 .Card-detail {
   font-size: 14px;
   padding-bottom: 2px;
+}
+
+.Card-button {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: #336699;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+.Card-button:hover {
+  background-color: #2566a7;
+  color: white;
 }

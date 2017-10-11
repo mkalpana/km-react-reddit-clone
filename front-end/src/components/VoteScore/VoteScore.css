@@ -10,10 +10,6 @@
   cursor: pointer;
 }
 
-.VoteScore-icon:focus {
-  outline: 0;
-}
-
 .VoteScore-text {
   text-align: center;
   font-size: 20px;

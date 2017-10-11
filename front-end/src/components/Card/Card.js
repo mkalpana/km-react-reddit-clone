@@ -25,7 +25,7 @@ class Card extends PureComponent {
             Posted under&nbsp;
             <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
             <Link className="bold" to={postURL}>{comments ? comments.length : 0}</Link>&nbsp;comments |&nbsp;
-            <a href="#" onClick={onDeletePost} className="bold">Delete Post</a>
+            <button onClick={onDeletePost} className="Card-button">Delete Post</button>
           </div>
         </div>
       </div>
