@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchCategoryPosts, fetchPostComments, fetchCategories, removePost } from '../../actions';
 import { PostsList, SideNav } from '../../components';
-import './CategoryView.css';
 
 class CategoryView extends Component {
   componentDidMount() {
@@ -29,11 +28,9 @@ class CategoryView extends Component {
       return { url: `/${category.path}`, name: category.name };
     }) : [];
     return (
-      <div className="CategoryView-container">
-        <div>
-          <PostsList posts={posts} onDeletePost={removePost} />
-          <SideNav links={links} selected={match.params.categoryId}/>
-        </div>
+      <div>
+        <PostsList posts={posts} onDeletePost={removePost} />
+        <SideNav links={links} selected={match.params.categoryId}/>
       </div>
     );
   }

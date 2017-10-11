@@ -5,7 +5,6 @@ import {
   fetchPosts, removePost, upVotePost, downVotePost, fetchPostComments, fetchCategories
 } from '../../actions';
 import { PostsList, SideNav } from '../../components';
-import './Home.css';
 
 class Home extends Component {
   componentDidMount() {
@@ -21,11 +20,9 @@ class Home extends Component {
       return { url: `/${category.path}`, name: category.name };
     }) : [];
     return (
-      <div className="Home-container">
-        <div>
-          <PostsList posts={posts} onDeletePost={removePost} onUpVote={upVotePost} onDownVote={downVotePost}/>
-          <SideNav links={links} />
-        </div>
+      <div>
+        <PostsList posts={posts} onDeletePost={removePost} onUpVote={upVotePost} onDownVote={downVotePost}/>
+        <SideNav links={links} />
       </div>
     );
   }
