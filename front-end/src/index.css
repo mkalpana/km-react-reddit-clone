@@ -36,3 +36,8 @@ h4 {
 .bold {
   font-weight: bold;
 }
+
+.bolditalic {
+  font-weight: bold;
+  font-style: italic;
+}
