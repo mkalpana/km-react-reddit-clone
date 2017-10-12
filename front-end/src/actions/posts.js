@@ -1,6 +1,6 @@
 import {
   getPosts, getPost, updatePost, deletePost, votePost,
-  getPostComments, updateComment, voteComment, getCategoryPosts,
+  getPostComments, updateComment, deleteComment, voteComment, getCategoryPosts,
 } from "../utils/apiHelper";
 
 export const FETCH_POSTS = 'FETCH_POSTS';
@@ -104,10 +104,12 @@ export function addPostComment(comment) {
 }
 
 export function removePostComment(commentId) {
-  return {
-    type: REMOVE_POST_COMMENT,
-    commentId,
-  }
+  return dispatch => {
+    return deleteComment(commentId).then(comment => dispatch({
+      type: UPDATE_COMMENT,
+      payload: comment,
+    }));
+  };
 }
 
 export function upVoteComment(commentId) {

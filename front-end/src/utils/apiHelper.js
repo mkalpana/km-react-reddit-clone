@@ -42,6 +42,10 @@ export const updateComment = (comment) => {
     .then(response => response && response.data ? response.data : []);
 };
 
+export const deleteComment = (commentId) => {
+  return axios.delete(`/comments/${commentId}`).then(response => response.data ? response.data : {})
+};
+
 export const voteComment = (commentId, option) => {
   return axios.post(`/comments/${commentId}`, { option }).then(response => response.data ? response.data : {})
 };

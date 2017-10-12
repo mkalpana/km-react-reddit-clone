@@ -6,12 +6,13 @@ import './CommentList.css';
 class CommentList extends Component {
   render() {
     const { comments, onDeleteComment, onUpVote, onDownVote } = this.props;
+    const validComments = comments ? comments.filter(comment => !comment.deleted && !comment.parentDeleted) : [];
     return (
       <div className="CommentList-container">
         <h4>Comments</h4>
         <div className="CommentList-comments">
-          {comments && comments.length > 0 ?
-            comments.map(comment => (
+          {validComments && validComments.length > 0 ?
+            validComments.map(comment => (
               <CommentCard
                 key={comment.id}
                 timestamp={comment.timestamp}
