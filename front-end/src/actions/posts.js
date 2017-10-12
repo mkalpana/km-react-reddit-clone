@@ -1,5 +1,5 @@
 import {
-  getPosts, deletePost, getPostComments, getCategoryPosts, votePost,
+  getPosts, getPost, updatePost, deletePost, getPostComments, getCategoryPosts, votePost,
 } from "../utils/apiHelper";
 
 export const FETCH_POSTS = 'FETCH_POSTS';
@@ -17,6 +17,24 @@ export function fetchPosts() {
     return getPosts().then(posts => dispatch({
       type: FETCH_POSTS,
       payload: posts,
+    }));
+  };
+}
+
+export function fetchPost(postId) {
+  return dispatch => {
+    return getPost(postId).then(post => dispatch({
+      type: UPDATE_POST,
+      payload: post,
+    }));
+  };
+}
+
+export function editPost(post) {
+  return dispatch => {
+    return updatePost(post).then(post => dispatch({
+      type: UPDATE_POST,
+      payload: post,
     }));
   };
 }

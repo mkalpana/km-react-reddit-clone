@@ -11,6 +11,17 @@ export const getPosts = () => {
   return axios.get('/posts').then(response => response && response.data ? response.data : []);
 };
 
+export const getPost = (postId) => {
+  return axios.get(`posts/${postId}`)
+    .then(response => response && response.data ? response.data : []);
+};
+
+export const updatePost = (post) => {
+  return axios.patch(`posts/${post.id}`, post)
+    .then(response => response && response.data ? response.data : []);
+};
+
+
 export const getCategories = () => {
   return axios.get('/categories').then(response => response && response.data ? response.data.categories : []);
 };

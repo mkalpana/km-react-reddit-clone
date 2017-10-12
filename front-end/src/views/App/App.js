@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
-import { Home, CategoryView, ViewPost, AddPost } from '../index';
+import { Home, CategoryView, ViewPost, AddPost, EditPost } from '../index';
 import MdWifiTethering from 'react-icons/lib/md/wifi-tethering';
 
 class App extends Component {
@@ -25,6 +25,7 @@ class App extends Component {
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/post/add" component={AddPost}/>
                 <Route exact path="/:categoryId" component={CategoryView}/>
+                <Route exact path="/:categoryId/:postId/edit" component={EditPost}/>
                 <Route exact path="/:categoryId/:postId" component={ViewPost}/>
               </Switch>
             </div>

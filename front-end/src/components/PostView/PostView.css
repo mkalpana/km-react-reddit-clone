@@ -1,0 +1,56 @@
+.PostView-container {
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.PostView-container > div {
+  display: flex;
+  width: 100%;
+}
+
+.PostView-container h3 {
+  margin-top: 0;
+}
+
+.PostView-header {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.PostView-container a {
+  color: #336699;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.PostView-container a:hover {
+  text-decoration: underline;
+}
+
+.PostView-description {
+  font-size: 16px;
+  padding: 8px 0;
+}
+
+.PostView-detail {
+  font-size: 14px;
+  padding-bottom: 2px;
+}
+
+.PostView-button {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: #336699;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+.PostView-button:hover {
+  background-color: #2566a7;
+  color: white;
+}

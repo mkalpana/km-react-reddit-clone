@@ -126,4 +126,4 @@ module.exports = {
   disable,
   edit,
   getAll
-}
+};

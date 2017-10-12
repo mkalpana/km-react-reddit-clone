@@ -10,6 +10,7 @@ const postReducer = (state=[], action) => {
     case ADD_POST:
       return state.concat(action.payload);
     case UPDATE_POST:
+      if (state.length === 0) return [action.payload];
       return state.map(post => (post.id === action.payload.id ? action.payload : post));
     case FETCH_POST_COMMENTS:
       const posts = state.map(post => {

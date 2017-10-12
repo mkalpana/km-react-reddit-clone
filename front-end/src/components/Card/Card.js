@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './Card.css';
-import moment from 'moment';
+import { formatDate } from '../../utils/helpers';
 import { VoteScore } from '../index';
 
 class Card extends PureComponent {
@@ -19,7 +19,7 @@ class Card extends PureComponent {
           <Link to={postURL}><h3 className="Card-title">{title}</h3></Link>
           <div className="Card-description">{body}</div>
           <div className="Card-detail">
-            Posted by <span className="bolditalic">{author}</span> {timestamp ? ` on ${moment(postDateTime).format('MMMM Do YYYY, h:mm:ss a')}` : ''}
+            Posted by <span className="bolditalic">{author}</span> {timestamp ? ` on ${formatDate(postDateTime)}` : ''}
           </div>
           <div className="Card-detail">
             Posted under&nbsp;

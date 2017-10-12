@@ -9,7 +9,7 @@ export {
 // Action Creators
 export { fetchCategories, addCategory, removeCategory } from './categories';
 export {
-  fetchPosts, addPost, removePost, upVotePost, downVotePost,
+  fetchPosts, fetchPost, editPost, addPost, removePost, upVotePost, downVotePost,
   fetchPostComments, addPostComment, removePostComment,
   fetchCategoryPosts,
 } from './posts';

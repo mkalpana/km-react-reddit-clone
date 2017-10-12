@@ -3,3 +3,4 @@ export { default as Home } from './Home/Home';
 export { default as CategoryView } from './CategoryView/CategoryView';
 export { default as ViewPost } from './ViewPost/ViewPost';
 export { default as AddPost } from './AddPost/AddPost';
+export { default as EditPost } from './EditPost/EditPost';

@@ -39,6 +39,7 @@ CategoryView.propTypes = {
   fetchPosts: PropTypes.func,
   fetchPostComments: PropTypes.func,
   fetchCategories: PropTypes.func,
+  removePost: PropTypes.func,
   match: PropTypes.object,
 };
 
