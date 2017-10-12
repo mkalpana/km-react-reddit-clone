@@ -1,5 +1,6 @@
 import {
-  getPosts, getPost, updatePost, deletePost, getPostComments, getCategoryPosts, votePost,
+  getPosts, getPost, updatePost, deletePost, votePost,
+  getPostComments, updateComment, voteComment, getCategoryPosts,
 } from "../utils/apiHelper";
 
 export const FETCH_POSTS = 'FETCH_POSTS';
@@ -9,6 +10,7 @@ export const UPDATE_POST = 'UPDATE_POST';
 export const FETCH_POST_COMMENTS = 'FETCH_POST_COMMENTS';
 export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
 export const REMOVE_POST_COMMENT = 'REMOVE_POST_COMMENT';
+export const UPDATE_COMMENT = 'UPDATE_COMMENT';
 
 export const FETCH_CATEGORY_POSTS = 'FETCH_CATEGORY_POSTS';
 
@@ -85,6 +87,15 @@ export function fetchPostComments(postId) {
   };
 }
 
+export function editPostComment(comment) {
+  return dispatch => {
+    return updateComment(comment).then(comment => dispatch({
+      type: UPDATE_COMMENT,
+      payload: comment,
+    }));
+  };
+}
+
 export function addPostComment(comment) {
   return {
     type: ADD_POST_COMMENT,
@@ -97,6 +108,24 @@ export function removePostComment(commentId) {
     type: REMOVE_POST_COMMENT,
     commentId,
   }
+}
+
+export function upVoteComment(commentId) {
+  return dispatch => {
+    return voteComment(commentId, 'upVote').then(comment => dispatch({
+      type: UPDATE_COMMENT,
+      payload: comment,
+    }));
+  };
+}
+
+export function downVoteComment(commentId) {
+  return dispatch => {
+    return voteComment(commentId, 'downVote').then(comment => dispatch({
+      type: UPDATE_COMMENT,
+      payload: comment
+    }));
+  };
 }
 
 export function fetchCategoryPosts(categoryId) {

@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { PostView } from '../../components';
 import {
   fetchPost, fetchPostComments, fetchCategories, editPost,
-  removePost, upVotePost, downVotePost
+  removePost, upVotePost, downVotePost,
+  removePostComment, upVoteComment, downVoteComment,
 } from "../../actions/";
+import CommentList from "../../components/CommentList/CommentList";
 
 class ViewPost extends Component {
   componentDidMount() {
@@ -21,7 +23,7 @@ class ViewPost extends Component {
   }
 
   render() {
-    const { posts, match, upVotePost, downVotePost } = this.props;
+    const { posts, match, upVotePost, downVotePost, removePostComment, upVoteComment, downVoteComment } = this.props;
     const post = posts && posts.find(post => {
       return post.id === match.params.postId;
     });
@@ -46,6 +48,12 @@ class ViewPost extends Component {
           categoryURL={`/${post.category}`}
           onDeletePost={() => this.onDeletePost(post.id)}
         />
+        <CommentList
+          comments={post.comments}
+          onDeleteComment={removePostComment}
+          onUpVote={upVoteComment}
+          onDownVote={downVoteComment}
+        />
       </div>
     );
   }
@@ -60,11 +68,15 @@ ViewPost.propTypes = {
   removePost: PropTypes.func,
   upVotePost: PropTypes.func,
   downVotePost: PropTypes.func,
+  removePostComment: PropTypes.func,
+  upVoteComment: PropTypes.func,
+  downVoteComment: PropTypes.func,
 };
 function mapStateToProps(state) {
-  const { posts } = state;
+  const { posts, comments } = state;
   return {
     posts,
+    comments,
   };
 }
 export default connect(mapStateToProps, {
@@ -75,4 +87,7 @@ export default connect(mapStateToProps, {
   removePost,
   upVotePost,
   downVotePost,
+  removePostComment,
+  upVoteComment,
+  downVoteComment,
 })(ViewPost);

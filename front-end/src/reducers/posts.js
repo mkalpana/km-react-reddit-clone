@@ -1,5 +1,6 @@
 import {
   FETCH_POSTS, ADD_POST, UPDATE_POST,
+  UPDATE_COMMENT,
   FETCH_POST_COMMENTS, FETCH_CATEGORY_POSTS
 } from "../actions";
 
@@ -11,7 +12,10 @@ const postReducer = (state=[], action) => {
       return state.concat(action.payload);
     case UPDATE_POST:
       if (state.length === 0) return [action.payload];
-      return state.map(post => (post.id === action.payload.id ? action.payload : post));
+      return state.map(post => (post.id === action.payload.id ? {
+        ...action.payload,
+        comments: post.comments
+      } : post));
     case FETCH_POST_COMMENTS:
       const posts = state.map(post => {
         const newPost = { ...post };
@@ -21,6 +25,16 @@ const postReducer = (state=[], action) => {
         return newPost;
       });
       return posts;
+    case UPDATE_COMMENT:
+      return state.map(post => {
+        if (post.id === action.payload.parentId) {
+          const newPost = { ...post };
+          newPost.comments = post.comments ?
+            post.comments.map(comment => comment.id === action.payload.id ? action.payload : comment) : [];
+          return newPost;
+        }
+        return post;
+      });
     case FETCH_CATEGORY_POSTS:
       return action.payload;
     default:

@@ -11,12 +11,13 @@ class Card extends PureComponent {
       timestamp, title, body, author, category, voteScore, comments,
       postURL, categoryURL, onUpVote, onDownVote, onDeletePost,
     } = this.props;
+    const validComments = comments ? comments.filter(c => !c.deleted) : [];
     const postDateTime = new Date(timestamp);
     return (
       <div className="Card-container">
         <VoteScore score={voteScore} onUpVote={onUpVote} onDownVote={onDownVote} />
         <div>
-          <Link to={postURL}><h3 className="Card-title">{title}</h3></Link>
+          <Link to={postURL}><h3>{title}</h3></Link>
           <div className="Card-description">{body}</div>
           <div className="Card-detail">
             Posted by <span className="bolditalic">{author}</span> {timestamp ? ` on ${formatDate(postDateTime)}` : ''}
@@ -24,7 +25,7 @@ class Card extends PureComponent {
           <div className="Card-detail">
             Posted under&nbsp;
             <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
-            <Link className="bold" to={postURL}>{comments ? comments.length : 0}</Link>&nbsp;comments |&nbsp;
+            <Link className="bold" to={postURL}>{validComments ? validComments.length : 0}</Link>&nbsp;comments |&nbsp;
             <button onClick={onDeletePost} className="Card-button">Delete Post</button>
           </div>
         </div>

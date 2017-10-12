@@ -21,20 +21,6 @@ export const updatePost = (post) => {
     .then(response => response && response.data ? response.data : []);
 };
 
-
-export const getCategories = () => {
-  return axios.get('/categories').then(response => response && response.data ? response.data.categories : []);
-};
-
-
-export const getPostComments = (postId) => {
-  return axios.get(`/posts/${postId}/comments`).then(response => response && response.data ? response.data : []);
-};
-
-export const getCategoryPosts = (categoryId) => {
-  return axios.get(`/${categoryId}/posts`).then(response => response && response.data ? response.data : []);
-};
-
 export const addPost = (post) => {
   return axios.post('/posts', post).then(response => response && response.data ? response.data : {});
 };
@@ -45,4 +31,25 @@ export const deletePost = (postId) => {
 
 export const votePost = (postId, option) => {
   return axios.post(`/posts/${postId}`, { option }).then(response => response.data ? response.data : {})
+};
+
+export const getPostComments = (postId) => {
+  return axios.get(`/posts/${postId}/comments`).then(response => response && response.data ? response.data : []);
+};
+
+export const updateComment = (comment) => {
+  return axios.patch(`comments/${comment.id}`, comment)
+    .then(response => response && response.data ? response.data : []);
+};
+
+export const voteComment = (commentId, option) => {
+  return axios.post(`/comments/${commentId}`, { option }).then(response => response.data ? response.data : {})
+};
+
+export const getCategoryPosts = (categoryId) => {
+  return axios.get(`/${categoryId}/posts`).then(response => response && response.data ? response.data : []);
+};
+
+export const getCategories = () => {
+  return axios.get('/categories').then(response => response && response.data ? response.data.categories : []);
 };
