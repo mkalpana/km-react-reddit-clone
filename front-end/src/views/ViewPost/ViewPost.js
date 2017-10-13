@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { PostView } from '../../components';
 import {
   fetchPost, fetchPostComments, fetchCategories, editPost,
-  removePost, upVotePost, downVotePost,
+  removePost, upVotePost, downVotePost, addPostComment,
   removePostComment, upVoteComment, downVoteComment,
 } from "../../actions/";
 import CommentList from "../../components/CommentList/CommentList";
@@ -23,7 +23,10 @@ class ViewPost extends Component {
   }
 
   render() {
-    const { posts, match, upVotePost, downVotePost, removePostComment, upVoteComment, downVoteComment } = this.props;
+    const {
+      posts, match, upVotePost, downVotePost, addPostComment, removePostComment,
+      upVoteComment, downVoteComment
+    } = this.props;
     const post = posts && posts.find(post => {
       return post.id === match.params.postId;
     });
@@ -49,10 +52,12 @@ class ViewPost extends Component {
           onDeletePost={() => this.onDeletePost(post.id)}
         />
         <CommentList
+          postId={post.id}
           comments={post.comments}
           onDeleteComment={removePostComment}
           onUpVote={upVoteComment}
           onDownVote={downVoteComment}
+          onAddComment={addPostComment}
         />
       </div>
     );
@@ -68,6 +73,7 @@ ViewPost.propTypes = {
   removePost: PropTypes.func,
   upVotePost: PropTypes.func,
   downVotePost: PropTypes.func,
+  addPostComment: PropTypes.func,
   removePostComment: PropTypes.func,
   upVoteComment: PropTypes.func,
   downVoteComment: PropTypes.func,
@@ -87,6 +93,7 @@ export default connect(mapStateToProps, {
   removePost,
   upVotePost,
   downVotePost,
+  addPostComment,
   removePostComment,
   upVoteComment,
   downVoteComment,

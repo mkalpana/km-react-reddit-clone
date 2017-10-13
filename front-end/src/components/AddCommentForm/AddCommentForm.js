@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import { validate } from './validationHelper';
 import { renderInputField, renderTextAreaField } from "../../utils/formHelper";
 import './AddCommentForm.css';
 
+const FORM_NAME = 'add-comment';
 
 class AddCommentForm extends Component {
   render() {
-    const { handleSubmit, submitting, pristine, reset, onSubmit } = this.props;
+    const { handleSubmit, submitting, pristine, reset, onSubmit, postId } = this.props;
     return (
       <div className="AddCommentForm-container">
-        <form onSubmit={handleSubmit((values) => onSubmit(values))}>
+        <form onSubmit={handleSubmit((values) => onSubmit(postId, values))}>
           <Field
             name="author"
             type="text"
@@ -44,9 +45,10 @@ AddCommentForm.propTypes = {
   pristine: PropTypes.bool,
   reset: PropTypes.func,
   onSubmit: PropTypes.func,
-
+  postId: PropTypes.string,
 };
 export default reduxForm({
-  form: 'add-comment',
+  form: FORM_NAME,
   validate,
+  onSubmitSuccess: (result, dispatch) => dispatch(reset(FORM_NAME)),
 })(AddCommentForm);

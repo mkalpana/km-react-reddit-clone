@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const renderInputField = (props) => {
-  const { input, label, placeholder, type, meta: { touched, error, warning}, ...rest } = props;
+  const { input, label, placeholder, type, meta: { touched, error }, ...rest } = props;
   return (
     <div>
       <label className="FormLabel">{label}</label>
@@ -15,7 +15,7 @@ export const renderInputField = (props) => {
 
 
 export const renderTextAreaField = (props) => {
-  const { input, label, placeholder, type, meta: { touched, error, warning}, ...rest } = props;
+  const { input, label, placeholder, type, meta: { touched, error }, ...rest } = props;
   return (
     <div>
       <label className="FormLabel">{label}</label>

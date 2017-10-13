@@ -1,7 +1,8 @@
 import {
   getPosts, getPost, updatePost, deletePost, votePost,
-  getPostComments, updateComment, deleteComment, voteComment, getCategoryPosts,
+  getPostComments, addComment, updateComment, deleteComment, voteComment, getCategoryPosts,
 } from "../utils/apiHelper";
+import uuidv1 from 'uuid/v1';
 
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const ADD_POST = 'ADD_POST';
@@ -96,10 +97,18 @@ export function editPostComment(comment) {
   };
 }
 
-export function addPostComment(comment) {
-  return {
-    type: ADD_POST_COMMENT,
-    comment,
+export function addPostComment(postId, comment) {
+  const payload = {
+    ...comment,
+    timestamp: Date.now(),
+    id: uuidv1(),
+    parentId: postId,
+  };
+  return dispatch => {
+    return addComment(payload).then(comment => dispatch({
+      type: ADD_POST_COMMENT,
+      payload: comment,
+    }));
   };
 }
 

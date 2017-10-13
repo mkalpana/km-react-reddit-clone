@@ -37,8 +37,13 @@ export const getPostComments = (postId) => {
   return axios.get(`/posts/${postId}/comments`).then(response => response && response.data ? response.data : []);
 };
 
+export const addComment = (comment) => {
+  return axios.post(`/comments`, comment)
+    .then(response => response && response.data ? response.data : []);
+};
+
 export const updateComment = (comment) => {
-  return axios.patch(`comments/${comment.id}`, comment)
+  return axios.patch(`/comments/${comment.id}`, comment)
     .then(response => response && response.data ? response.data : []);
 };
 

@@ -16,7 +16,7 @@ class CommentCard extends PureComponent {
         <div>
           <div className="CommentCard-description">{body}</div>
           <div className="CommentCard-detail">
-            Posted by <span className="bolditalic">{author}</span> {timestamp ? ` on ${formatDate(commentDateTime)}` : ''} | &nbsp;
+            Posted by <span className="bolditalic">{author}</span> {timestamp ? ` on ${formatDate(commentDateTime)}` : ''}
           </div>
           <div className="CommentCard-detail">
             <button onClick={onDeleteComment} className="CommentCard-button">Delete Comment</button>
