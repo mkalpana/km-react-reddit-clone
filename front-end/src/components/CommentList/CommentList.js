@@ -31,7 +31,10 @@ class CommentList extends Component {
           }
         </div>
         <h4>Add a comment</h4>
-        <AddCommentForm postId={postId} onSubmit={(postId, values) => onAddComment(postId, values) }/>
+        <AddCommentForm
+          postId={postId}
+          onSubmit={ (postId, values) => onAddComment(postId, values) }
+        />
       </div>
     );
   }

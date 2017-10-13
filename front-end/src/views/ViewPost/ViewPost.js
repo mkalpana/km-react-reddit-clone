@@ -6,7 +6,7 @@ import {
   fetchPost, fetchPostComments, fetchCategories, editPost,
   removePost, upVotePost, downVotePost, addPostComment,
   removePostComment, upVoteComment, downVoteComment,
-} from "../../actions/";
+} from "../../actions";
 import CommentList from "../../components/CommentList/CommentList";
 
 class ViewPost extends Component {

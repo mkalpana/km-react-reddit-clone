@@ -26,3 +26,23 @@ export const renderTextAreaField = (props) => {
     </div>
   );
 };
+
+export const renderSelectField = (props) => {
+  const { input, label, meta: { touched, error }, options, ...rest } = props;
+  return (
+    <div>
+      <label className="FormLabel">{label}</label>
+      <div className="Select-container">
+        <select {...input} {...rest} >
+          {
+            options && options.map(opt => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))
+          }
+        </select>
+        {touched && error && <div className="error">{error}</div>}
+      </div>
+    </div>
+  );
+};
+

@@ -2,22 +2,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm, reset } from 'redux-form';
 import { validate } from './validationHelper';
-import { renderInputField, renderTextAreaField } from "../../utils/formHelper";
-import './AddCommentForm.css';
+import { renderInputField, renderTextAreaField, renderSelectField } from "../../utils/formHelper";
+import './PostForm.css';
 
-const FORM_NAME = 'add-comment-form';
+const FORM_NAME = 'post-form';
 
-class AddCommentForm extends Component {
+class PostForm extends Component {
   render() {
-    const { handleSubmit, submitting, pristine, reset, onSubmit, postId } = this.props;
+    const { handleSubmit, submitting, pristine, reset, onSubmit, categories } = this.props;
+    const options = categories ? categories.map(category => ({ label: category.name, value: category.path })) : [];
     return (
-      <div className="AddCommentForm-container">
-        <form onSubmit={handleSubmit((values) => onSubmit(postId, values))}>
+      <div className="PostForm-container">
+        <form onSubmit={handleSubmit((values) => onSubmit(values))}>
           <Field
-            name="author"
+            name="title"
             type="text"
             component={renderInputField}
-            label="Author *"
+            label="Title *"
             placeholder="Enter your name here"
           />
           <Field
@@ -27,6 +28,19 @@ class AddCommentForm extends Component {
             label="Body *"
             placeholder="Enter comment here"
             rows="5"
+          />
+          <Field
+            name="author"
+            type="text"
+            component={renderInputField}
+            label="Author *"
+            placeholder="Enter your name here"
+          />
+          <Field
+            name="category"
+            component={renderSelectField}
+            label="Category *"
+            options={options}
           />
           <button className="btn btn-primary" type="submit" disabled={submitting}>
             Submit
@@ -39,16 +53,16 @@ class AddCommentForm extends Component {
     );
   }
 }
-AddCommentForm.propTypes = {
+PostForm.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
   pristine: PropTypes.bool,
   reset: PropTypes.func,
   onSubmit: PropTypes.func,
-  postId: PropTypes.string,
+  categories: PropTypes.array,
 };
 export default reduxForm({
   form: FORM_NAME,
   validate,
   onSubmitSuccess: (result, dispatch) => dispatch(reset(FORM_NAME)),
-})(AddCommentForm);
+})(PostForm);

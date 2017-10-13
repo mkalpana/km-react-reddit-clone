@@ -1,5 +1,5 @@
 import {
-  getPosts, getPost, updatePost, deletePost, votePost,
+  getPosts, getPost, addPost, updatePost, deletePost, votePost,
   getPostComments, addComment, updateComment, deleteComment, voteComment, getCategoryPosts,
 } from "../utils/apiHelper";
 import uuidv1 from 'uuid/v1';
@@ -42,10 +42,12 @@ export function editPost(post) {
   };
 }
 
-export function addPost(post) {
-  return {
-    type: ADD_POST,
-    payload: post,
+export function createPost(post) {
+  return dispatch => {
+    return addPost(post).then(post => dispatch({
+      type: ADD_POST,
+      payload: post,
+    }));
   };
 }
 

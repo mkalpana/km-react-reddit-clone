@@ -53,7 +53,7 @@ input, textarea {
   padding: 8px;
   border: 1px solid #ccc;
   width: 100%;
-  margin: 8px 0;
+  margin-bottom: 10px;
 }
 
 input:focus, textarea:focus {
@@ -62,8 +62,10 @@ input:focus, textarea:focus {
 }
 
 .FormLabel {
+  display: inline-block;
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .error {
@@ -75,8 +77,10 @@ input:focus, textarea:focus {
 .btn {
   padding: 8px;
   border: 1px solid #2566a7;
-  margin-right: 20px;
+  margin: 20px 20px 20px 0;
   border-radius: 2px;
+  min-width: 100px;
+  text-transform: uppercase;
 }
 
 .btn:focus {
@@ -91,4 +95,14 @@ input:focus, textarea:focus {
 
 .btn-secondary {
   background-color: white;
+}
+
+select {
+  margin-bottom: 8px;
+  width: 40%;
+  font-size: 14px;
+}
+
+.Select-container {
+  font-size: 16px;
 }
