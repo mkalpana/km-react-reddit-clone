@@ -48,7 +48,7 @@ class PostForm extends Component {
             Submit
           </button>
           <button className="btn btn-secondary" type="button" disabled={pristine || submitting} onClick={reset}>
-            Clear
+            Reset
           </button>
         </form>
       </div>

@@ -1,27 +1,39 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './CommentCard.css';
-import { formatDate } from '../../utils/helpers';
 import { VoteScore } from '../index';
+import DisplayComment from './DisplayComment';
+import EditCommentForm from './EditCommentForm';
 
-class CommentCard extends PureComponent {
+class CommentCard extends Component {
+  state = {
+    showEditForm: false,
+  };
   render() {
     const {
-      timestamp, body, author, voteScore, onUpVote, onDownVote, onDeleteComment,
+      timestamp, body, author, voteScore, onUpVote, onDownVote, onEditComment, onDeleteComment,
     } = this.props;
-    const commentDateTime = new Date(timestamp);
+    const { showEditForm } = this.state;
     return (
       <div className="CommentCard-container">
         <VoteScore score={voteScore} onUpVote={onUpVote} onDownVote={onDownVote} />
-        <div>
-          <div className="CommentCard-description">{body}</div>
-          <div className="CommentCard-detail">
-            Posted by <span className="bolditalic">{author}</span> {timestamp ? ` on ${formatDate(commentDateTime)}` : ''}
-          </div>
-          <div className="CommentCard-detail">
-            <button onClick={onDeleteComment} className="CommentCard-button">Delete Comment</button>
-          </div>
-        </div>
+        {
+          showEditForm ? (
+            <EditCommentForm
+              initialValues={{ author: author, body: body }}
+              onSubmitSuccess={() => this.setState({ showEditForm: false })}
+              onSubmit={onEditComment}
+            />
+          ) : (
+            <DisplayComment
+              timestamp={timestamp}
+              body={body}
+              author={author}
+              onEdit={() => this.setState({ showEditForm: true })}
+              onDelete={onDeleteComment}
+            />
+          )
+        }
       </div>
     );
   }
@@ -35,5 +47,6 @@ CommentCard.propTypes = {
   onUpVote: PropTypes.func,
   onDownVote: PropTypes.func,
   onDeleteComment: PropTypes.func,
+  onEditComment: PropTypes.func,
 };
 export default CommentCard;

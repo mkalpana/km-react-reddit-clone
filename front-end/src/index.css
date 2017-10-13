@@ -77,7 +77,7 @@ input:focus, textarea:focus {
 .btn {
   padding: 8px;
   border: 1px solid #2566a7;
-  margin: 20px 20px 20px 0;
+  margin: 10px 20px 10px 0;
   border-radius: 2px;
   min-width: 100px;
   text-transform: uppercase;

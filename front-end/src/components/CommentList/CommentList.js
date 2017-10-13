@@ -5,7 +5,7 @@ import './CommentList.css';
 
 class CommentList extends Component {
   render() {
-    const { postId, comments, onDeleteComment, onUpVote, onDownVote, onAddComment } = this.props;
+    const { postId, comments, onEditComment, onDeleteComment, onUpVote, onDownVote, onAddComment } = this.props;
     const validComments = comments ? comments.filter(comment => !comment.deleted && !comment.parentDeleted) : [];
     return (
       <div className="CommentList-container">
@@ -22,6 +22,7 @@ class CommentList extends Component {
                 onDeleteComment={() => onDeleteComment(comment.id)}
                 onUpVote={() => onUpVote(comment.id)}
                 onDownVote={() => onDownVote(comment.id)}
+                onEditComment={(values) => onEditComment({ ...comment, ...values })}
               >
               </CommentCard>
             )) :
@@ -33,7 +34,7 @@ class CommentList extends Component {
         <h4>Add a comment</h4>
         <AddCommentForm
           postId={postId}
-          onSubmit={ (postId, values) => onAddComment(postId, values) }
+          onSubmit={(postId, values) => onAddComment(postId, values)}
         />
       </div>
     );
@@ -42,6 +43,7 @@ class CommentList extends Component {
 CommentList.propsTypes = {
   postId: PropTypes.string,
   comments: PropTypes.array,
+  onEditComment: PropTypes.func,
   onDeleteComment: PropTypes.func,
   onUpVote: PropTypes.func,
   onDownVote: PropTypes.func,

@@ -4,7 +4,6 @@
   margin: 0 0 20px 0;
   background-color: #d3dfea;
   display: flex;
-  align-items: center;
 }
 
 .CommentCard-container a {
@@ -19,7 +18,7 @@
 
 .CommentCard-description {
   font-size: 16px;
-  padding-bottom: 8px;
+  padding: 10px 0 8px 0;
 }
 
 .CommentCard-detail {
@@ -28,15 +27,19 @@
 }
 
 .CommentCard-button {
-  margin-top: 8px;
   border: 1px solid #2566a7;
   background-color: transparent;
   color: #336699;
   font-size: 14px;
   border-radius: 2px;
+  margin: 8px 10px 0 0;
 }
 
 .CommentCard-button:hover {
   background-color: #2566a7;
   color: white;
+}
+
+.CommentCard-editForm-container {
+  width: 50%;
 }

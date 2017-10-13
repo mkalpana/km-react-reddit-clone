@@ -1,4 +1,4 @@
-export const validate = values => {
+export const commentsValidate = values => {
   const errors = {};
   if (!values.author) {
     errors.author = 'Author should not be empty';

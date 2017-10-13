@@ -43,7 +43,7 @@ export const addComment = (comment) => {
 };
 
 export const updateComment = (comment) => {
-  return axios.put(`/comments/${comment.id}`, comment)
+  return axios.put(`/comments/${comment.id}`, { body: comment.body })
     .then(response => response && response.data ? response.data : []);
 };
 
