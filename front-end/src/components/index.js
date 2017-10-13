@@ -1,3 +1,4 @@
+export { default as AddCommentForm } from './AddCommentForm/AddCommentForm';
 export { default as Card } from './Card/Card';
 export { default as CommentCard } from './CommentCard/CommentCard';
 export { default as PostsList } from './PostList/PostList';

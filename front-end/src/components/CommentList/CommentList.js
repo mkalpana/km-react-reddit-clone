@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { CommentCard } from '../index';
+import { CommentCard, AddCommentForm } from '../index';
 import './CommentList.css';
 
 class CommentList extends Component {
@@ -30,6 +30,8 @@ class CommentList extends Component {
             </div>
           }
         </div>
+        <h4>Add a comment</h4>
+        <AddCommentForm onSubmit={(values) => console.log(values) }/>
       </div>
     );
   }
