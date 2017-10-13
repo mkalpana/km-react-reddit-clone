@@ -64,5 +64,6 @@ PostForm.propTypes = {
 export default reduxForm({
   form: FORM_NAME,
   validate,
+  enableReinitialize: true,
   onSubmitSuccess: (result, dispatch) => dispatch(reset(FORM_NAME)),
 })(PostForm);

@@ -4,11 +4,6 @@
   margin-bottom: 20px;
   background-color: #d3dfea;
   display: flex;
-  align-items: center;
-}
-
-.Card-container h3 {
-  margin-top: 0;
 }
 
 .Card-container a {

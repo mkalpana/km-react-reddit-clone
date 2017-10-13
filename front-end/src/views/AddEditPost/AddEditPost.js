@@ -33,10 +33,11 @@ class AddEditPost extends Component {
   };
 
   render() {
-    const { isEdit, categories } = this.props;
+    const { isEdit, categories, initialValues } = this.props;
     return (
       <div>
         <PostForm
+          initialValues={initialValues}
           categories={categories}
           onSubmit={ (values) => this.doSubmit(isEdit, values)}
         />
@@ -52,18 +53,21 @@ AddEditPost.propTypes = {
   editPost: PropTypes.func,
   fetchPosts: PropTypes.func,
   fetchCategories: PropTypes.func,
+  initialValues: PropTypes.object,
 };
 function mapStateToProps(state, ownProps) {
   const { posts, categories } = state;
   let initialValues = {};
   let isEdit = false;
   if (ownProps && ownProps.match.params.postId) {
+    // Edit Mode
     isEdit = true;
     initialValues = {
       ...posts.find(post => post.id === ownProps.match.params.postId),
       comments: null,
     }
   } else {
+    // Add Mode
     initialValues = {
       category: categories && categories.length > 0 ? categories[0].path : '',
     }
