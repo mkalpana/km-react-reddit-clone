@@ -15,7 +15,7 @@ class AddEditPost extends Component {
     const { createPost, editPost, history } = this.props;
     if (isEdit) {
       // Edit Post
-      editPost(values).then(post => {
+      editPost(values).then(() => {
         history.push(`/${values.category}/${values.id}`);
       });
     } else {
@@ -25,8 +25,7 @@ class AddEditPost extends Component {
         timestamp: Date.now(),
         id: uuidv1(),
       };
-      createPost(payload).then(post => {
-        console.log(post);
+      createPost(payload).then(() => {
         history.push(`/${payload.category}/${payload.id}`);
       });
     }
@@ -37,6 +36,7 @@ class AddEditPost extends Component {
     return (
       <div>
         <PostForm
+          isEdit={isEdit}
           initialValues={initialValues}
           categories={categories}
           onSubmit={ (values) => this.doSubmit(isEdit, values)}

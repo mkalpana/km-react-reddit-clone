@@ -9,7 +9,7 @@ const FORM_NAME = 'post-form';
 
 class PostForm extends Component {
   render() {
-    const { handleSubmit, submitting, pristine, reset, onSubmit, categories } = this.props;
+    const { handleSubmit, submitting, pristine, reset, onSubmit, categories, isEdit } = this.props;
     const options = categories ? categories.map(category => ({ label: category.name, value: category.path })) : [];
     return (
       <div className="PostForm-container">
@@ -35,12 +35,14 @@ class PostForm extends Component {
             component={renderInputField}
             label="Author *"
             placeholder="Enter your name here"
+            disabled={isEdit}
           />
           <Field
             name="category"
             component={renderSelectField}
             label="Category *"
             options={options}
+            disabled={isEdit}
           />
           <button className="btn btn-primary" type="submit" disabled={submitting}>
             Submit
@@ -60,6 +62,7 @@ PostForm.propTypes = {
   reset: PropTypes.func,
   onSubmit: PropTypes.func,
   categories: PropTypes.array,
+  isEdit: PropTypes.bool,
 };
 export default reduxForm({
   form: FORM_NAME,

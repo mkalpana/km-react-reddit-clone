@@ -17,7 +17,7 @@ export const getPost = (postId) => {
 };
 
 export const updatePost = (post) => {
-  return axios.patch(`posts/${post.id}`, post)
+  return axios.put(`posts/${post.id}`, { title: post.title, body: post.body })
     .then(response => response && response.data ? response.data : []);
 };
 
@@ -43,7 +43,7 @@ export const addComment = (comment) => {
 };
 
 export const updateComment = (comment) => {
-  return axios.patch(`/comments/${comment.id}`, comment)
+  return axios.put(`/comments/${comment.id}`, comment)
     .then(response => response && response.data ? response.data : []);
 };
 
