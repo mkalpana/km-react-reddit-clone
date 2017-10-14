@@ -23,7 +23,8 @@ class PostView extends Component {
             </div>
             <div className="PostView-detail">
               Posted under&nbsp;
-              <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
+              <Link className="bold" to={categoryURL}>{category}</Link>&nbsp;
+              <Link className="PostView-button" to={postEditURL}>Edit Post</Link>
               <button onClick={onDeletePost} className="PostView-button">Delete Post</button>
             </div>
           </div>
