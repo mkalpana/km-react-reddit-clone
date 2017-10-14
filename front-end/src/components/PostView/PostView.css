@@ -42,14 +42,18 @@
 }
 
 .PostView-button {
-  border: 1px solid transparent;
+  border: 1px solid #2566a7;
   background-color: transparent;
   color: #336699;
   font-size: 14px;
   border-radius: 2px;
+  margin-right: 10px;
+  text-decoration: none;
+  padding: 2px 5px;
 }
 
-.PostView-button:hover {
+.PostView-button:hover, a.PostView-button:hover {
   background-color: #2566a7;
   color: white;
+  text-decoration: none;
 }

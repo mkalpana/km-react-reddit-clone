@@ -25,7 +25,10 @@ class Card extends PureComponent {
           <div className="Card-detail">
             Posted under&nbsp;
             <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
-            <Link className="bold" to={postURL}>{validComments ? validComments.length : 0}</Link>&nbsp;comments |&nbsp;
+            <Link className="bold" to={postURL}>
+              {validComments.length === 1 ? `${validComments.length} comment` : `${validComments.length} comments`}
+            </Link>&nbsp;
+            <Link className="Card-button" to={postURL}>View Post</Link>
             <button onClick={onDeletePost} className="Card-button">Delete Post</button>
           </div>
         </div>
