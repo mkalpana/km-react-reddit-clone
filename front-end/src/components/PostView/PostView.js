@@ -19,11 +19,11 @@ class PostView extends Component {
           <div className="PostView-header">
             <Link to={postEditURL}><h3 className="Post-title">{title}</h3></Link>
             <div className="PostView-detail">
-              Posted by <span className="bolditalic">{author}</span> {timestamp ? ` on ${formatDate(postDateTime)}` : ''}
+              Posted by <span className="PostView-author">{author}</span> {timestamp ? ` on ${formatDate(postDateTime)}` : ''}
             </div>
             <div className="PostView-detail">
               Posted under&nbsp;
-              <Link className="bold" to={categoryURL}>{category}</Link>&nbsp;
+              <Link className="PostView-link" to={categoryURL}>{category}</Link>&nbsp;&nbsp;
               <Link className="PostView-button" to={postEditURL}>Edit Post</Link>
               <button onClick={onDeletePost} className="PostView-button">Delete Post</button>
             </div>

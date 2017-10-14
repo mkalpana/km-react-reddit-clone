@@ -20,14 +20,14 @@ class Card extends PureComponent {
           <Link to={postURL}><h3>{title}</h3></Link>
           <div className="Card-description">{body}</div>
           <div className="Card-detail">
-            Posted by <span className="bolditalic">{author}</span> {timestamp ? ` on ${formatDate(postDateTime)}` : ''}
+            Posted by <span className="Card-author">{author}</span> {timestamp ? ` on ${formatDate(postDateTime)}` : ''}
           </div>
           <div className="Card-detail">
             Posted under&nbsp;
-            <Link className="bold" to={categoryURL}>{category}</Link> |&nbsp;
-            <Link className="bold" to={postURL}>
+            <Link className="Card-link" to={categoryURL}>{category}</Link> |&nbsp;
+            <Link className="Card-link" to={postURL}>
               {validComments.length === 1 ? `${validComments.length} comment` : `${validComments.length} comments`}
-            </Link>&nbsp;
+            </Link>&nbsp;&nbsp;
             <Link className="Card-button" to={postURL}>View Post</Link>
             <button onClick={onDeletePost} className="Card-button">Delete Post</button>
           </div>

@@ -42,3 +42,14 @@
   color: white;
   text-decoration: none;
 }
+
+.Card-author {
+  font-weight: bold;
+  color: #2566a7;
+}
+
+a.Card-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #2566a7;
+}

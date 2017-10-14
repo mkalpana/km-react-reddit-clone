@@ -18,9 +18,9 @@ The application requires the following software to be installed locally.
     - `npm install`
     - `node server`
 * Install and start the front end
-      - `cd front-end`
-      - `npm install`
-      - `npm start`
+    - `cd front-end`
+    - `npm install`
+    - `npm start`
 
 ## Note
 

@@ -13,7 +13,7 @@ class App extends Component {
             <header className="App-header">
               <div className="App-header-inner">
                 <MdWifiTethering className="App-logo" size={30}/>
-                <h1 className="App-title">React Reddit Clone</h1>
+                <h1 className="App-title">React Reddit</h1>
                 <nav className="App-nav">
                   <Link className="App-link" to="/">Home</Link>
                   <Link className="App-link" to="/post/add">Add Post</Link>

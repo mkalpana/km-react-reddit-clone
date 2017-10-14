@@ -57,3 +57,14 @@
   color: white;
   text-decoration: none;
 }
+
+.PostView-author {
+  font-weight: bold;
+  color: #2566a7;
+}
+
+a.PostView-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #2566a7;
+}
