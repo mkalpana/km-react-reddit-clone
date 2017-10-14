@@ -6,6 +6,9 @@
   box-sizing: border-box;
 }
 
+.SideNav-title {
+  margin: 40px 20px 0 10px;
+}
 .SideNav-Link {
   font-size: 18px;
   margin: 10px;

@@ -45,6 +45,8 @@
   line-height: 30px;
   border-radius: 2px;
   letter-spacing: 1px;
+  margin-right: 10px;
+  border: 1px solid #d3dfea;
 }
 
 .App-link:hover {

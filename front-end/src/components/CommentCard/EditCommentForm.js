@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm, reset } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import { commentsValidate } from '../../utils/validationHelper';
 import { renderInputField, renderTextAreaField } from "../../utils/formHelper";
 import { uniqueId } from 'lodash';

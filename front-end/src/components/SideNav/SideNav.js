@@ -8,6 +8,7 @@ class SideNav extends PureComponent {
     const { links, selected } = this.props;
     return (
       <div className="SideNav-container">
+        <h3 className="SideNav-title">Categories</h3>
         {
           links && links.map(link => {
             const linkStyle = `SideNav-Link ${selected === link.name ? 'selected' : ''}`;
