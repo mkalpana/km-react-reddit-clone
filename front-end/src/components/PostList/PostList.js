@@ -10,7 +10,7 @@ class PostList extends Component {
 
     this.state = {
       posts: props.post,
-      sortOrder: TIME_DESC,
+      sortOrder: SCORE_DESC,
     };
   }
 
@@ -52,11 +52,11 @@ class PostList extends Component {
         <div className="PostList-sort-container">
           <div>
             <span id="sort-by-id"> Sort By: </span>
-            <select onChange={this.onSortChange} aria-labelledby="sort-by-id">
-              <option value={TIME_ASC}>Date: Earliest First</option>
+            <select onChange={this.onSortChange} aria-labelledby="sort-by-id" defaultValue={SCORE_DESC}>
               <option value={TIME_DESC}>Date: Recent First</option>
-              <option value={SCORE_ASC}>Vote Score: Best First</option>
-              <option value={SCORE_DESC}>Vote Score: Worst First</option>
+              <option value={TIME_ASC}>Date: Earliest First</option>
+              <option value={SCORE_DESC}>Vote Score: Best First</option>
+              <option value={SCORE_ASC}>Vote Score: Worst First</option>
             </select>
           </div>
         </div>
