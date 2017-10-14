@@ -5,7 +5,10 @@ This project is a react reddit clone with content and comments functionality. Us
 ## Getting started with development
 
 1. Clone this git repository using `git@github.com:mkalpana/km-react-reddit-clone.git`
-2. `cd front-end`.
+2. API server has t be started. `cd api-server`
+3. Install the dependencies using `npm install`
+4. Run `npm start` to run the api-server.
+2. Now `../cd front-end`.
 3. Install the dependencies using `npm install`
 4. Run `npm start` to run the application in development mode.
 
