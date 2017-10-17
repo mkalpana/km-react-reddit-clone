@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCategoryPosts, fetchPostComments, fetchCategories, removePost } from '../../actions';
-import { PostsList, SideNav } from '../../components';
+import {
+  fetchCategoryPosts, fetchPostComments, fetchCategories, removePost, upVotePost, downVotePost
+} from '../../actions';
+import { PostList, SideNav } from '../../components';
 
 class CategoryView extends Component {
   componentDidMount() {
@@ -23,13 +25,13 @@ class CategoryView extends Component {
   }
 
   render() {
-    const { posts, categories, match, removePost } = this.props;
+    const { posts, categories, match, removePost, upVotePost, downVotePost } = this.props;
     const links = categories ? categories.map(category => {
       return { url: `/${category.path}`, name: category.name };
     }) : [];
     return (
       <div>
-        <PostsList posts={posts} onDeletePost={removePost} />
+        <PostList posts={posts} onDeletePost={removePost} onUpVote={upVotePost} onDownVote={downVotePost}/>
         <SideNav links={links} selected={match.params.categoryId}/>
       </div>
     );
@@ -40,6 +42,8 @@ CategoryView.propTypes = {
   fetchPostComments: PropTypes.func,
   fetchCategories: PropTypes.func,
   removePost: PropTypes.func,
+  upVotePost: PropTypes.func,
+  downVotePost: PropTypes.func,
   match: PropTypes.object,
 };
 
@@ -55,4 +59,6 @@ export default connect(mapStateToProps, {
   fetchPostComments,
   fetchCategories,
   removePost,
+  upVotePost,
+  downVotePost,
 })(CategoryView);

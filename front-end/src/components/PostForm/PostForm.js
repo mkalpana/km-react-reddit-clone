@@ -19,14 +19,14 @@ class PostForm extends Component {
             type="text"
             component={renderInputField}
             label="Title *"
-            placeholder="Enter your name here"
+            placeholder="Enter the title here"
           />
           <Field
             name="body"
             type="text"
             component={renderTextAreaField}
             label="Body *"
-            placeholder="Enter comment here"
+            placeholder="Enter the body here"
             rows="5"
           />
           <Field

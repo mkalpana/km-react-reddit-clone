@@ -2,9 +2,9 @@
 export { FETCH_CATEGORIES } from './categories';
 export {
   FETCH_POSTS, ADD_POST, UPDATE_POST,
-  FETCH_POST_COMMENTS, ADD_POST_COMMENT, REMOVE_POST_COMMENT, UPDATE_COMMENT,
+  FETCH_POST_COMMENTS, ADD_POST_COMMENT, UPDATE_COMMENT,
   FETCH_CATEGORY_POSTS,
-} from './posts';
+} from './types';
 
 // Action Creators
 export { fetchCategories } from './categories';

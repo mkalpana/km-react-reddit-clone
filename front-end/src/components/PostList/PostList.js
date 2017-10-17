@@ -9,7 +9,7 @@ class PostList extends Component {
     super(props);
 
     this.state = {
-      posts: props.post,
+      posts: [],
       sortOrder: SCORE_DESC,
     };
   }

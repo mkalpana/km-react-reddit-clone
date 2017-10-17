@@ -4,16 +4,11 @@ import {
 } from "../utils/apiHelper";
 import uuidv1 from 'uuid/v1';
 
-export const FETCH_POSTS = 'FETCH_POSTS';
-export const ADD_POST = 'ADD_POST';
-export const UPDATE_POST = 'UPDATE_POST';
-
-export const FETCH_POST_COMMENTS = 'FETCH_POST_COMMENTS';
-export const ADD_POST_COMMENT = 'ADD_POST_COMMENT';
-export const REMOVE_POST_COMMENT = 'REMOVE_POST_COMMENT';
-export const UPDATE_COMMENT = 'UPDATE_COMMENT';
-
-export const FETCH_CATEGORY_POSTS = 'FETCH_CATEGORY_POSTS';
+import {
+  FETCH_POSTS, ADD_POST, UPDATE_POST,
+  FETCH_POST_COMMENTS, ADD_POST_COMMENT, UPDATE_COMMENT,
+  FETCH_CATEGORY_POSTS,
+} from './types';
 
 export function fetchPosts() {
   return dispatch => {

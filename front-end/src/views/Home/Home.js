@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
   fetchPosts, removePost, upVotePost, downVotePost, fetchPostComments, fetchCategories
 } from '../../actions';
-import { PostsList, SideNav } from '../../components';
+import { PostList, SideNav } from '../../components';
 
 class Home extends Component {
   componentDidMount() {
@@ -21,7 +21,7 @@ class Home extends Component {
     }) : [];
     return (
       <div>
-        <PostsList posts={posts} onDeletePost={removePost} onUpVote={upVotePost} onDownVote={downVotePost}/>
+        <PostList posts={posts} onDeletePost={removePost} onUpVote={upVotePost} onDownVote={downVotePost}/>
         <SideNav links={links} />
       </div>
     );
